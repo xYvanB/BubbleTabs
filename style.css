@@ -1,0 +1,137 @@
+:root {
+  /* VARIABLES */
+  --color-01: #ffffff;
+  --color-02: #e4e9fd;
+  --color-03: #4d5bf9;
+  --color-04: #000024;
+  --color-05: #202238;
+  --color-06: #000000;
+  --color-06-semitrasparent: #00000080;
+
+  --font-default: "Raleway", sans-serif;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700; 
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #3eaadd;
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  width: 80vw;
+  max-width: 1440px;
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  top: 120px;
+  background-color: var(--color-01);
+}
+
+.tabs {
+  display: flex;
+}
+
+.tabs .tabs-title {
+  font-family: var(--font-default);
+  font-weight: var(--font-weight-semibold);
+  font-size: 14px;
+  background-color: var(--color-02);
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--color-06);
+  padding: 15px 0;
+  cursor: pointer;
+  position: relative;
+  flex: 1;
+  transition: 0.5s linear;
+}
+
+@media (hover: hover) {
+  /* Mostra l'hover quando supportato */
+  .tabs .tabs-title:hover {
+    color: var(--color-06-semitrasparent);
+  }
+}
+
+.tabs .tabs-title::after {
+  content: "";
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background-color: var(--color-03);
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: 0.5s linear;
+}
+
+.tabs .tabs-title.active {
+  background-color: var(--color-01);
+  color: var(--color-03); 
+}
+
+.tabs .tabs-title.active::after {
+  opacity: 1;
+}
+
+.tab-content-container {
+  background-color: var(--color-01);
+  padding: 50px 40px;
+}
+
+.tab-content-container .tab-content {
+  display: none;
+}
+
+.tab-content-container .tab-content.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeEffects 1s;
+}
+
+.tab-content-container .tab-content .tab-content-text-container {
+  width: 100%;
+}
+
+.tab-content-container .tab-content .tab-content-text-container .tab-content-title {
+  font-family: var(--font-default);
+  font-weight: var(--font-weight-bold);
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: var(--color-04);
+  font-weight: 600;
+}
+
+.tab-content-container .tab-content  .tab-content-text-container .tab-content-paragraph {
+  font-family: var(--font-default);
+  font-weight: var(--font-weight-semibold);
+  font-size: 16px;
+  line-height: 1.9;
+  letter-spacing: 0.4px;
+  color: var(--color-05);
+}
+
+.tab-content-container .tab-content .tab-content-image {
+  width: 50%;
+  margin-bottom: 30px;
+}
+
+@keyframes fadeEffects {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
